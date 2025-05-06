@@ -1,0 +1,24 @@
+// https://nuxt.com/docs/api/configuration/nuxt-config
+export default defineNuxtConfig({
+    compatibilityDate: '2024-11-01',
+    devtools: {enabled: true},
+    modules: [
+        '@nuxtjs/tailwindcss',
+        '@vueuse/nuxt',
+        'nuxt-marquee',
+        'nuxt-i18n-micro'
+    ],
+    i18n: {
+        defaultLocale: 'en',
+        locales: [
+            {
+                code: 'en', iso: 'en-US', dir: 'ltr'
+            },
+            {
+                code: 'id', iso: 'id-ID', dir: 'ltr'
+            }
+        ],
+        translationDir: 'locales',
+        meta: true,
+    }
+})

@@ -1,0 +1,23 @@
+{
+  "profile": {
+    "title": "PROFIL SAYA",
+    "big_text": "SIAPA ITU FARHAN ?",
+    "description": "Seorang pekerja lepas dengan keahlian dalam desain dan pemrograman, berpengalaman di berbagai bidang, serta mahir menggunakan berbagai alat yang dapat bermanfaat bagi perusahaan Anda.",
+    "taglines": [
+      {
+        "title": "DESAIN",
+        "description": "Merancang untuk berbagai proyek dengan mengandalkan kreativitas dan keahlian yang telah diasah selama lebih dari enam tahun."
+      },
+      {
+        "title": "DEFINISI",
+        "description": "Menjelaskan dan bertanggung jawab atas desain yang telah diselesaikan, memahami prosesnya, serta mengomunikasikannya secara efektif kepada klien."
+      },
+      {
+        "title": "PENGEMBANGAN",
+        "description": "Mengembangkan kebutuhan klien berdasarkan penjelasan mereka serta secara konsisten memelihara sistem yang telah dibangun."
+      }
+    ],
+    "about_cta": "LEBIH LANJUT",
+    "experience": "PENGALAMAN SEBELUMNYA"
+  }
+}
