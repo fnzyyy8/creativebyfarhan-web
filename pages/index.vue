@@ -71,6 +71,9 @@ const taglines = computed(() => t("profile.taglines"))
       <div class="flex flex-col justify-center items-center pb-3 h-full">
         <h2>{{ $t('profile.experience') }}</h2>
         <div class="flex gap-12 justify-center items-center sm:mt-10 mt-3">
+          <img width="120" src="/public/company-logo/Sena.svg" alt="sena">
+          <img width="120" src="/public/company-logo/Samsung.svg" alt="samsung">
+          <img width="120" src="/public/company-logo/H&M.svg" alt="h&m">
         </div>
       </div>
     </div>
