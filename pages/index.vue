@@ -33,19 +33,20 @@ const taglines = computed(() => t("profile.taglines"))
       </div>
     </hero-section>
   </section>
-  <section id="aboutIndex" class="h-screen my-16">
+  <section id="aboutIndex" class="min-h-screen sm:my-16">
     <div class="grid flex-col p-6 min-h-screen">
-      <div class="flex justify-center items-center flex-col" v-gsap.whenVisible.fromTo="[{autoAlpha: 0, y:100},{autoAlpha: 1,y:0}]">
+      <div class="flex justify-center items-center flex-col"
+           v-gsap.whenVisible.fromTo="[{autoAlpha: 0, y:100},{autoAlpha: 1,y:0}]">
         <h2>{{ $t('profile.title') }}</h2>
         <div class="text-center pt-6 flex justify-center items-center flex-col max-w-md"
-             >
+        >
           <h2 class="sm:text-5xl! text-4xl ">{{ $t('profile.big_text') }}</h2>
           <p class=" sm:mt-2 my-6">
             {{ $t('profile.description') }}
           </p>
         </div>
       </div>
-      <div class="grid sm:grid-cols-2 sm:gap-2 my-6 sm:my-0"
+      <div class="grid sm:grid-cols-2 sm:gap-2 sm:my-0"
            v-gsap.whenVisible.fromTo="[{autoAlpha: 0, y:100},{autoAlpha: 1,y:0}]">
         <div class="flex flex-col justify-center items-center">
           <div v-for="{title, description} in taglines" class=" tagline" :key="title">
@@ -53,7 +54,7 @@ const taglines = computed(() => t("profile.taglines"))
             <p>{{ description }}</p>
           </div>
         </div>
-        <div class="flex justify-center items-center flex-col">
+        <div class="flex justify-center items-center flex-col my-12 sm:my-0">
           <NuxtLink :to="localeRoute('/about')" class="cta-about px-8 py-3">
             <div class="flex flex-col justify-center sm:items-end items-center pb-3 sm:gap-6 gap-2">
               <h2 class=" sm:text-3xl text-xl font-semibold!">{{ $t('profile.about_cta') }}</h2>
@@ -68,12 +69,15 @@ const taglines = computed(() => t("profile.taglines"))
           </NuxtLink>
         </div>
       </div>
-      <div class="flex flex-col justify-center items-center pb-3 h-full" >
+      <div class="flex flex-col justify-center items-center pb-3 h-full">
         <h2>{{ $t('profile.experience') }}</h2>
-        <div class="flex gap-32 justify-center items-center sm:mt-3 mt-3">
-          <img v-gsap.whileVisible.to="{ scale : 0.5, duration : 1, repeat : 1,yoyo: true }" width="120" src="/public/company-logo/Sena.svg" alt="sena">
-          <img v-gsap.whileVisible.to="{ scale : 0.5, duration : 1, repeat : 1,yoyo: true }" width="120" src="/public/company-logo/Samsung.svg" alt="samsung">
-          <img v-gsap.whileVisible.to="{ scale : 0.5, duration : 1, repeat : 1,yoyo: true }" width="120" src="/public/company-logo/H&M.svg" alt="h&m">
+        <div class="flex sm:gap-32 gap-16 justify-center items-center sm:mt-3 mt-3">
+          <img v-gsap.whileVisible.to="{ scale : 0.5, duration : 1, repeat : 1,yoyo: true }" width="120"
+               src="/public/company-logo/Sena.svg" alt="sena">
+          <img v-gsap.whileVisible.to="{ scale : 0.5, duration : 1, repeat : 1,yoyo: true }" width="120"
+               src="/public/company-logo/Samsung.svg" alt="samsung">
+          <img v-gsap.whileVisible.to="{ scale : 0.5, duration : 1, repeat : 1,yoyo: true }" width="120"
+               src="/public/company-logo/H&M.svg" alt="h&m">
         </div>
       </div>
     </div>
@@ -83,14 +87,14 @@ const taglines = computed(() => t("profile.taglines"))
 
 <style>
 .hero-section {
-  @apply px-10 flex flex-col justify-center;
+  @apply sm:px-10 px-6 flex flex-col justify-center;
 
   h1 {
     @apply sm:text-6xl text-3xl font-bold;
   }
 
   .head-tagline {
-    @apply flex sm:gap-6 font-medium text-xl mt-3;
+    @apply flex sm:gap-6 font-medium sm:text-xl text-xs gap-3 mt-3;
   }
 }
 
@@ -98,7 +102,7 @@ const taglines = computed(() => t("profile.taglines"))
   @apply flex items-end justify-end pb-6 overflow-hidden text-white;
 
   p {
-    @apply text-sm sm:text-xs;
+    @apply text-xs sm:text-sm;
   }
 }
 
@@ -133,9 +137,6 @@ const taglines = computed(() => t("profile.taglines"))
     transition: ease 0.7s;
   }
 
-  .icon-color {
-    fill: #161616 !important;
-  }
 }
 
 

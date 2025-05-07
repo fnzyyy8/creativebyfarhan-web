@@ -10,6 +10,15 @@ export default defineNuxtConfig({
         '@formkit/auto-animate',
         'v-gsap-nuxt'
     ],
+    app: {
+        head: {
+            link: [
+                {
+                    rel: 'icon', type: 'image/svg+xml', href: '/icon/Icon-Browser.svg'
+                }
+            ]
+        }
+    },
     i18n: {
         defaultLocale: 'en',
         locales: [

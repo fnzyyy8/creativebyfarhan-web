@@ -43,7 +43,7 @@ const switchLang = (code: string) => {
 </script>
 
 <template>
-  <nav :class="scrolled? ' bg-white shadow-lg' : 'sm:bg-transparent! text-white '"  >
+  <nav :class="scrolled? ' bg-white shadow-lg' : ' sm:bg-transparent text-white '">
     <div class="navbar">
       <div class="pr-3 py-3" v-gsap.once.fromTo="[{opacity:0,x:20},{opacity:1,x:0}]">
         <button class="flex items-center" @click="toggleLang">
@@ -88,14 +88,15 @@ const switchLang = (code: string) => {
         </button>
       </div>
     </div>
-    <div v-auto-animate class="nav-container">
+    <div v-auto-animate class="nav-container"
+         :class="showNavList || showLangList ? 'h-screen sm:bg-transparent bg-white ' : ' h-fit sm:text-white bg-transparent'">
       <ul v-if="showLangList || showNavList"
-          :class="scrolled ? 'nav-scroll sm:flex-row flex flex-col' : 'nav-unScroll  sm:flex-row flex flex-col'">
+          :class="scrolled ? 'nav-scroll sm:flex-row flex flex-col' : 'nav-unScroll  sm:flex-row flex flex-col sm:text-white text-black'">
         <template v-if="showLangList">
           <li v-for="{code} in getLocales()" :key="code">
-            <button @click="switchLang(code)">
+            <a @click="switchLang(code)">
               {{ code.toUpperCase() }}
-            </button>
+            </a>
           </li>
         </template>
         <template v-if="showNavList">
@@ -120,24 +121,11 @@ nav {
 }
 
 .nav-container {
-  @apply sm:border-t sm:h-fit h-screen flex flex-col;
+  @apply sm:border-t sm:h-fit flex flex-col;
 
-  li button {
-    @apply sm:px-12 sm:py-6 block border-t sm:border-0 pl-3 py-6;
-  }
-
-  .nav-unScroll li button:hover {
-    background: #161616;
-    transition: background 0.3s ease;
-  }
-
-  .nav-scroll li button:hover {
-    background: #DDDDDD;
-    transition: background 0.3s ease;
-  }
 
   li a {
-    @apply sm:px-12 sm:py-6 block border-t sm:border-0 pl-3 py-6;
+    @apply sm:px-12 sm:py-6 block border-t sm:border-0 pl-3 py-6 cursor-pointer;
   }
 
   .nav-unScroll li a:hover {

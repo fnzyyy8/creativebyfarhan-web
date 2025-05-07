@@ -9,5 +9,8 @@
 </template>
 
 <style scoped>
+h1{
+  @apply sm:text-6xl text-3xl font-bold
+}
 
 </style>

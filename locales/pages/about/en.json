@@ -1,1 +1,82 @@
-{}
+{
+  "details": {
+    "nickname": "FARHAN",
+    "name": "Farhan Septiansyah Hidayat",
+    "about_me": "During my education, I worked in sales, being part of a team that sold various products from clothing to smartphones. My interest in technology began in childhood with a fascination for aviation, a field that values precision and strict procedures. However, due to financial limitations, I sought alternatives beyond aviation—from music production using DAWs to automation tools like macros and coding. This exploration eventually led me deep into the world of data and IT."
+  },
+  "skills": {
+    "title": "SKILLS",
+    "detail": [
+      {
+        "title": "Programming Languages",
+        "tools": "HTML, CSS, JavaScript, PHP",
+        "description": "The programming languages I frequently use for frontend and backend development are JavaScript and PHP. Currently, I'm also learning other languages like Java and Rust."
+      },
+      {
+        "title": "Frameworks",
+        "tools": "Node.js, React.js, Vue.js, Laravel",
+        "description": "For frontend development, I often use React.js, Vue.js, and Next.js. For backend development, I work with Laravel and NestJS."
+      },
+      {
+        "title": "Others",
+        "tools": "Microsoft Excel, Tableau, Adobe Photoshop, Adobe Illustrator, Adobe Premiere Pro",
+        "description": "I'm also proficient in Excel, from formulas to macros. Additionally, I have skills in design and motion graphics. Furthermore, I have improved my abilities by mastering analysis tools like Tableau."
+      }
+    ]
+  },
+  "careers": {
+    "title": "CAREER",
+    "detail": [
+      {
+        "title": "Technology",
+        "year": "2024 - Present",
+        "description": "Once I felt ready with the knowledge I had gained, I began working in the tech field. This experience sharpened my skills in web development, and I am now focusing on mobile app development."
+      },
+      {
+        "title": "Oil & Gas Company",
+        "year": "2022 - 2024",
+        "description": "In this field, I learned how to handle official correspondence and ensure all tasks were carried out according to proper procedures."
+      },
+      {
+        "title": "Event Organizer",
+        "year": "2021",
+        "description": "Working in events sparked my creativity. This job was a stepping stone for me to learn how to process data and negotiation."
+      },
+      {
+        "title": "Retail",
+        "year": "2017 - 2020",
+        "description": "Retail was an accessible job for a fresh graduate. Here, I learned teamwork and how to be target-oriented."
+      }
+    ]
+  },
+  "strengths": {
+    "title": "STRENGTHS",
+    "detail": [
+      {
+        "title": "Highly Motivated and Quick Learner",
+        "description": "I am a highly motivated individual with a strong passion for learning. For me, learning is not just a necessity but also an enjoyable activity that fuels my curiosity and personal growth. Every new experience I embrace is driven by genuine interest, not obligation."
+      },
+      {
+        "title": "Strategic Problem Solver",
+        "description": "I see problem-solving like solving a complex puzzle—challenging yet highly satisfying. My analytical mindset allows me to approach challenges methodically, finding effective solutions not only at work but also in social and personal life."
+      },
+      {
+        "title": "Creative and Proactive",
+        "description": "Creativity is an integral part of who I am, influenced by my parents—one a music lecturer and the other a musician in Medan. Immersing in music and art has sharpened my ability to think outside the box, allowing me to interpret and create things from a unique perspective."
+      }
+    ]
+  },
+  "futures": {
+    "title": "FUTURE",
+    "detail": [
+      {
+        "title": "Three Years from Now",
+        "description": "In three years, after joining your company, I aim to become a small team leader driving company profitability through effective policies. Leadership is not just about giving orders but about setting an example, inspiring others, and being a role model for both new and existing employees."
+      },
+      {
+        "title": "Five Years from Now",
+        "description": "In five years, I aim to become a key part of your company, equipped not only with managerial skills but also with technical implementation abilities that align with operational goals."
+      }
+    ]
+  }
+}
