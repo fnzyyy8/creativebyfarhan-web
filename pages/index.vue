@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 
-const {t,localeRoute} = useI18n()
+const {t, localeRoute} = useI18n()
 
 const taglines = computed(() => t("profile.taglines"))
 
@@ -12,14 +12,12 @@ const taglines = computed(() => t("profile.taglines"))
   <section id="heroIndex">
     <hero-section class="hero-section">
       <div class="grid grid-rows-2 min-h-screen w-full">
-        <div class="flex items-end justify-start">
-          <div>
-            <h1>Creative By Farhan</h1>
-            <div class="head-tagline">
-              <p>Design</p>
-              <p>Define</p>
-              <p>Develop</p>
-            </div>
+        <div class="flex flex-col items-center justify-end">
+          <h1 v-gsap.delay-100.fromTo="[{opacity:0,x:-20},{opacity:1,x:0}]">Creative By Farhan</h1>
+          <div class="head-tagline">
+            <p v-gsap.delay-200.fromTo="[{opacity:0,x:-20},{opacity:1,x:0}]">Design</p>
+            <p v-gsap.delay-300.fromTo="[{opacity:0,x:-20},{opacity:1,x:0}]">Define</p>
+            <p v-gsap.delay-400.fromTo="[{opacity:0,x:-20},{opacity:1,x:0}]">Develop</p>
           </div>
         </div>
         <div class="running-text">
@@ -35,27 +33,29 @@ const taglines = computed(() => t("profile.taglines"))
       </div>
     </hero-section>
   </section>
-  <section id="aboutIndex">
+  <section id="aboutIndex" class="h-screen my-16">
     <div class="grid flex-col p-6 min-h-screen">
-      <div class="flex justify-center items-center flex-col">
+      <div class="flex justify-center items-center flex-col" v-gsap.whenVisible.fromTo="[{autoAlpha: 0, y:100},{autoAlpha: 1,y:0}]">
         <h2>{{ $t('profile.title') }}</h2>
-        <div class="text-center pt-6 flex justify-center items-center flex-col max-w-md">
+        <div class="text-center pt-6 flex justify-center items-center flex-col max-w-md"
+             >
           <h2 class="sm:text-5xl! text-4xl ">{{ $t('profile.big_text') }}</h2>
           <p class=" sm:mt-2 my-6">
             {{ $t('profile.description') }}
           </p>
         </div>
       </div>
-      <div class="grid sm:grid-cols-2 sm:gap-2 my-6 sm:my-0 ">
+      <div class="grid sm:grid-cols-2 sm:gap-2 my-6 sm:my-0"
+           v-gsap.whenVisible.fromTo="[{autoAlpha: 0, y:100},{autoAlpha: 1,y:0}]">
         <div class="flex flex-col justify-center items-center">
-          <div v-for="tagline in taglines" class=" tagline">
-            <h3>{{ tagline.title }}</h3>
-            <p>{{ tagline.description }}</p>
+          <div v-for="{title, description} in taglines" class=" tagline" :key="title">
+            <h3>{{ title }}</h3>
+            <p>{{ description }}</p>
           </div>
         </div>
         <div class="flex justify-center items-center flex-col">
-          <NuxtLink :to="localeRoute('/about')" class="cta-about px-6 py-3">
-            <div class="flex flex-col justify-center sm:items-end items-center pb-3 sm:gap-6 gap-3">
+          <NuxtLink :to="localeRoute('/about')" class="cta-about px-8 py-3">
+            <div class="flex flex-col justify-center sm:items-end items-center pb-3 sm:gap-6 gap-2">
               <h2 class=" sm:text-3xl text-xl font-semibold!">{{ $t('profile.about_cta') }}</h2>
               <span>
            <svg width="70" height="16" viewBox="0 0 70 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -68,12 +68,12 @@ const taglines = computed(() => t("profile.taglines"))
           </NuxtLink>
         </div>
       </div>
-      <div class="flex flex-col justify-center items-center pb-3 h-full">
+      <div class="flex flex-col justify-center items-center pb-3 h-full" >
         <h2>{{ $t('profile.experience') }}</h2>
-        <div class="flex gap-12 justify-center items-center sm:mt-10 mt-3">
-          <img width="120" src="/public/company-logo/Sena.svg" alt="sena">
-          <img width="120" src="/public/company-logo/Samsung.svg" alt="samsung">
-          <img width="120" src="/public/company-logo/H&M.svg" alt="h&m">
+        <div class="flex gap-32 justify-center items-center sm:mt-3 mt-3">
+          <img v-gsap.whileVisible.to="{ scale : 0.5, duration : 1, repeat : 1,yoyo: true }" width="120" src="/public/company-logo/Sena.svg" alt="sena">
+          <img v-gsap.whileVisible.to="{ scale : 0.5, duration : 1, repeat : 1,yoyo: true }" width="120" src="/public/company-logo/Samsung.svg" alt="samsung">
+          <img v-gsap.whileVisible.to="{ scale : 0.5, duration : 1, repeat : 1,yoyo: true }" width="120" src="/public/company-logo/H&M.svg" alt="h&m">
         </div>
       </div>
     </div>
@@ -122,6 +122,7 @@ const taglines = computed(() => t("profile.taglines"))
       @apply text-base sm:text-base text-justify;
     }
   }
+
   .cta-about {
     color: #317ABE;
   }

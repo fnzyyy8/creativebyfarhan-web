@@ -6,7 +6,9 @@ export default defineNuxtConfig({
         '@nuxtjs/tailwindcss',
         '@vueuse/nuxt',
         'nuxt-marquee',
-        'nuxt-i18n-micro'
+        'nuxt-i18n-micro',
+        '@formkit/auto-animate',
+        'v-gsap-nuxt'
     ],
     i18n: {
         defaultLocale: 'en',
@@ -20,5 +22,8 @@ export default defineNuxtConfig({
         ],
         translationDir: 'locales',
         meta: true,
+        strategy: 'no_prefix'
+    }, vgsap: {
+        composable: true,
     }
 })

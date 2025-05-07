@@ -16,8 +16,10 @@
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
+    "@formkit/auto-animate": "^0.8.2",
     "@vueuse/nuxt": "^13.1.0",
     "nuxt-i18n-micro": "^1.87.0",
-    "nuxt-marquee": "^1.0.4"
+    "nuxt-marquee": "^1.0.4",
+    "v-gsap-nuxt": "^1.4.2"
   }
 }

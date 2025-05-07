@@ -1,39 +1,61 @@
 <script setup lang="ts">
+import {vAutoAnimate} from "@formkit/auto-animate/vue";
+
 const scrolled = ref(false)
-const langContainer = ref(false)
-const navListContainer = ref(false)
+const showNavList = ref(false)
+const showLangList = ref(false)
+const lastY = ref(0)
+const route = useRoute()
 const {y} = useWindowScroll()
 
+
+watch(route, () => {
+  showLangList.value = false
+  showNavList.value = false
+})
 watch(y, (val) => {
   scrolled.value = val > 0
+  if (lastY.value !== val) {
+    showLangList.value = false
+    showNavList.value = false
+  }
+  lastY.value = val
 })
 
 const toggleLang = () => {
-  langContainer.value = !langContainer.value
+  showLangList.value = !showLangList.value
+  showNavList.value = false
 }
 
 const toggleNav = () => {
-  navListContainer.value = !navListContainer.value
+  showNavList.value = !showNavList.value
+  showLangList.value = false
 }
 const {getLocale, getLocales, switchLocale, localeRoute} = useI18n()
 
 const navLists = inject('navLists')
 
+const switchLang = (code: string) => {
+  switchLocale(code)
+  showLangList.value = false
+}
 
 </script>
 
 <template>
-  <nav :class="scrolled? ' bg-white shadow-lg' : 'sm:bg-transparent! text-white '">
+  <nav :class="scrolled? ' bg-white shadow-lg' : 'sm:bg-transparent! text-white '"  >
     <div class="navbar">
-      <div>
+      <div class="pr-3 py-3" v-gsap.once.fromTo="[{opacity:0,x:20},{opacity:1,x:0}]">
         <button class="flex items-center" @click="toggleLang">
+        <span>
           {{ getLocale().toUpperCase() }}
+        </span>
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-            <path fill="currentColor" :d="langContainer ?  'm7 14l5-5l5 5z' : 'm12 15l-5-5h10z'"/>
+            <path fill="currentColor" :d="showLangList ?  'm7 14l5-5l5 5z' : 'm12 15l-5-5h10z'"/>
           </svg>
         </button>
       </div>
-      <div>
+      <div class="flex items-center justify-center" v-gsap.once.fromTo="[{opacity:0},{opacity:1}]">
         <NuxtLink :to="localeRoute('/')">
           <svg id="Layer_2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 262.34 250" width="24"
                height="24">
@@ -50,11 +72,11 @@ const navLists = inject('navLists')
           </svg>
         </NuxtLink>
       </div>
-      <div>
+      <div class="flex items-center justify-end" v-gsap.once.fromTo="[{opacity:0,x:-20},{opacity:1,x:0}]">
         <button @click="toggleNav" class="cursor-pointer">
           <Transition mode="out-in" name="icon-fade">
             <svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 0 24 24"
-                 v-if="navListContainer">
+                 v-if="showNavList">
               <!-- Icon from Google Material Icons by Material Design Authors - https://github.com/material-icons/material-icons/blob/master/LICENSE -->
               <path fill='currentColor'
                     d="M19 6.41L17.59 5L12 10.59L6.41 5L5 6.41L10.59 12L5 17.59L6.41 19L12 13.41L17.59 19L19 17.59L13.41 12z"></path>
@@ -66,32 +88,25 @@ const navLists = inject('navLists')
         </button>
       </div>
     </div>
-    <Transition mode="in-out" name="menu-slide">
-      <div v-if="langContainer" class="navList-container">
-        <ul :class="scrolled ? 'nav-scroll sm:flex-row flex flex-col' : 'nav-unScroll  sm:flex-row flex flex-col'">
-          <template v-for="locale in getLocales()">
-            <li>
-              <button @click="switchLocale(locale.code)">
-                {{ locale.code.toUpperCase() }}
-              </button>
-            </li>
-          </template>
-        </ul>
-      </div>
-    </Transition>
-    <Transition mode="in-out" name="menu-slide">
-      <div v-if="navListContainer" class="navList-container">
-        <ul :class="scrolled ? 'nav-scroll sm:flex-row flex flex-col' : 'nav-unScroll  sm:flex-row flex flex-col'">
-          <template v-for="navList in navLists">
-            <li>
-              <NuxtLink :to="localeRoute(navList.page)">
-                {{ navList.title }}
-              </NuxtLink>
-            </li>
-          </template>
-        </ul>
-      </div>
-    </Transition>
+    <div v-auto-animate class="nav-container">
+      <ul v-if="showLangList || showNavList"
+          :class="scrolled ? 'nav-scroll sm:flex-row flex flex-col' : 'nav-unScroll  sm:flex-row flex flex-col'">
+        <template v-if="showLangList">
+          <li v-for="{code} in getLocales()" :key="code">
+            <button @click="switchLang(code)">
+              {{ code.toUpperCase() }}
+            </button>
+          </li>
+        </template>
+        <template v-if="showNavList">
+          <li v-for="{title, page} in navLists" :key="title">
+            <NuxtLink :to="localeRoute(page)">
+              {{ title }}
+            </NuxtLink>
+          </li>
+        </template>
+      </ul>
+    </div>
   </nav>
 </template>
 
@@ -100,11 +115,11 @@ nav {
   @apply fixed top-0 flex w-full flex-col z-50 ;
 
   .navbar {
-    @apply sm:h-12 flex justify-between items-center sm:px-10 px-3 my-3
+    @apply sm:h-12 grid grid-cols-3 items-center sm:px-10 px-3 my-3
   }
 }
 
-.navList-container {
+.nav-container {
   @apply sm:border-t sm:h-fit h-screen flex flex-col;
 
   li button {
