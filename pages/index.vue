@@ -22,7 +22,7 @@ const taglines = computed(() => t("profile.taglines"))
         </div>
         <div class="overflow-hidden flex flex-col items-center justify-end">
           <div class="resume-and-down">
-            <a href="/cv/Farhan_Resume.pdf" target="_blank">
+            <a href="https://drive.google.com/file/d/1zrWegQJ_cEavbePFF73dbhmyf3VcSZW7/view?usp=sharing" target="_blank">
               <span class="mr-3">Resume</span>
               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
                 <!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE -->
