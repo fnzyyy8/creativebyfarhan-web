@@ -1,4 +1,5 @@
 <script setup lang="ts">
+
 const route = useRoute()
 
 function titleCase({s}: { s: any }) {

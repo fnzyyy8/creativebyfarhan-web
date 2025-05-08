@@ -46,8 +46,8 @@ const taglines = computed(() => t("profile.taglines"))
           </p>
         </div>
       </div>
-      <div class="grid sm:grid-cols-2 sm:gap-2 sm:my-0"
-           v-gsap.whenVisible.fromTo="[{autoAlpha: 0, y:100},{autoAlpha: 1,y:0}]">
+      <NuxtLink :to="localeRoute('/about')" class="cta-about px-8 py-3"
+                v-gsap.whenVisible.fromTo="[{autoAlpha: 0, y:100},{autoAlpha: 1,y:0}]">
         <div class="flex flex-col justify-center items-center">
           <div v-for="{title, description} in taglines" class=" tagline" :key="title">
             <h3>{{ title }}</h3>
@@ -55,20 +55,14 @@ const taglines = computed(() => t("profile.taglines"))
           </div>
         </div>
         <div class="flex justify-center items-center flex-col my-12 sm:my-0">
-          <NuxtLink :to="localeRoute('/about')" class="cta-about px-8 py-3">
-            <div class="flex flex-col justify-center sm:items-end items-center pb-3 sm:gap-6 gap-2">
-              <h2 class=" sm:text-3xl text-xl font-semibold!">{{ $t('profile.about_cta') }}</h2>
-              <span>
-           <svg width="70" height="16" viewBox="0 0 70 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M62.3431 13.6569L68 8.00001" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-    <path d="M2 8H68" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
-    <path d="M62.3431 2.34314L68 7.99999" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-  </svg>
-      </span>
-            </div>
-          </NuxtLink>
+          <h2 class=" sm:text-3xl text-xl font-semibold!">{{ $t('profile.about_cta') }}</h2>
+          <svg width="70" height="16" viewBox="0 0 70 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M62.3431 13.6569L68 8.00001" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+            <path d="M2 8H68" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+            <path d="M62.3431 2.34314L68 7.99999" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+          </svg>
         </div>
-      </div>
+      </NuxtLink>
       <div class="flex flex-col justify-center items-center pb-3 h-full">
         <h2>{{ $t('profile.experience') }}</h2>
         <div class="flex sm:gap-32 gap-16 justify-center items-center sm:mt-3 mt-3">
@@ -120,7 +114,7 @@ const taglines = computed(() => t("profile.taglines"))
   }
 
   .tagline {
-    @apply max-w-lg sm:mb-12 mb-6;
+    @apply max-w-lg sm:mb-12 mb-6 flex flex-col gap-2;
 
     p {
       @apply text-base sm:text-base text-justify;
@@ -128,7 +122,11 @@ const taglines = computed(() => t("profile.taglines"))
   }
 
   .cta-about {
+    @apply grid sm:grid-cols-2 sm:gap-2 sm:my-0;
     color: #317ABE;
+    p{
+      @apply text-black
+    }
   }
 
   .cta-about:hover {

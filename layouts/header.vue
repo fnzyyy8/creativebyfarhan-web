@@ -89,7 +89,7 @@ const switchLang = (code: string) => {
       </div>
     </div>
     <div v-auto-animate class="nav-container"
-         :class="showNavList || showLangList ? 'h-screen sm:bg-transparent bg-white ' : ' h-fit sm:text-white bg-transparent'">
+         :class="showNavList || showLangList ? 'h-screen sm:bg-transparent bg-white border-t' : ' h-fit sm:text-white bg-transparent'">
       <ul v-if="showLangList || showNavList"
           :class="scrolled ? 'nav-scroll sm:flex-row flex flex-col' : 'nav-unScroll  sm:flex-row flex flex-col sm:text-white text-black'">
         <template v-if="showLangList">
@@ -121,7 +121,7 @@ nav {
 }
 
 .nav-container {
-  @apply sm:border-t sm:h-fit flex flex-col;
+  @apply sm:h-fit flex flex-col;
 
 
   li a {
