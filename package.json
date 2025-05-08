@@ -17,6 +17,7 @@
   },
   "devDependencies": {
     "@formkit/auto-animate": "^0.8.2",
+    "@pinia/nuxt": "^0.11.0",
     "@vueuse/nuxt": "^13.1.0",
     "nuxt-i18n-micro": "^1.87.0",
     "nuxt-marquee": "^1.0.4",

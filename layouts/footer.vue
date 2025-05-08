@@ -22,7 +22,8 @@ const {localeRoute} = useI18n()
     <div class="my-3">
       <ul class="contact-list">
         <li v-for="{title,link} in contacts" class="flex items-center gap-1">
-          <a class="text-xs sm:text-sm" :href="link" target="_blank">{{ title }}
+          <a class="text-xs sm:text-sm" :href="link" target="_blank"
+          >{{ title }}
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
               <!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE -->
               <path fill="currentColor" d="M6.4 18L5 16.6L14.6 7H6V5h12v12h-2V8.4z"/>
@@ -43,9 +44,11 @@ const {localeRoute} = useI18n()
           </template>
         </ul>
       </div>
-      <div class="flex justify-end">
+      <div class="copyright">
         <p>
-          &copy; {{ year }} - Creative By Farhan
+          <span>
+            &copy;
+          </span>{{ year }} - <span>Creative</span> By Far<span>han</span>
         </p>
       </div>
 
@@ -93,9 +96,18 @@ footer {
   a {
     @apply flex gap-2
   }
+
   li a:hover {
     color: #f7ec13;
     transition: ease 0.7s;
+  }
+}
+
+.copyright {
+  @apply flex justify-end ;
+
+  p span {
+    color: #f7ec13;
   }
 }
 </style>
