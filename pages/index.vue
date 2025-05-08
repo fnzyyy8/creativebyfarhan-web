@@ -11,8 +11,8 @@ const taglines = computed(() => t("profile.taglines"))
 <template>
   <section id="heroIndex">
     <hero-section class="hero-section">
-      <div class="grid grid-rows-2 min-h-screen w-full">
-        <div class="flex flex-col items-center justify-end">
+      <div class="grid grid-rows-2 min-h-screen">
+        <div class="flex flex-col items-center justify-center row-span-3">
           <h1 v-gsap.delay-100.fromTo="[{opacity:0,x:-20},{opacity:1,x:0}]">Creative By Farhan</h1>
           <div class="head-tagline">
             <p v-gsap.delay-200.fromTo="[{opacity:0,x:-20},{opacity:1,x:0}]">Design</p>
@@ -20,20 +20,38 @@ const taglines = computed(() => t("profile.taglines"))
             <p v-gsap.delay-400.fromTo="[{opacity:0,x:-20},{opacity:1,x:0}]">Develop</p>
           </div>
         </div>
-        <div class="running-text">
-          <NuxtMarquee :speed="40" class="relative z-10" :pause-on-hover="true">
-            <div class="flex gap-5">
-              <template v-for="i in 15" :key="i">
-                <p>FARHAN PORTFOLIO SITE</p>
-                <p>•</p>
-              </template>
-            </div>
-          </NuxtMarquee>
+        <div class="overflow-hidden flex flex-col items-center justify-end">
+          <div class="resume-and-down">
+            <a href="/cv/Farhan_Resume.pdf" target="_blank">
+              <span class="mr-3">Resume</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                <!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE -->
+                <path fill="currentColor" d="m14 18l-1.4-1.45L16.15 13H4v-2h12.15L12.6 7.45L14 6l6 6z"/>
+              </svg>
+            </a>
+            <a href="#aboutIndex">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+                <!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE -->
+                <path fill="currentColor" d="M11 4v12.175l-5.6-5.6L4 12l8 8l8-8l-1.4-1.425l-5.6 5.6V4z"/>
+              </svg>
+            </a>
+          </div>
+          <div class="running-text">
+            <NuxtMarquee :speed="40" class="relative z-10" :pause-on-hover="true">
+              <div class="flex gap-5">
+                <template v-for="i in 50" :key="i">
+                  <p>FARHAN PORTFOLIO SITE</p>
+                  <p>•</p>
+                </template>
+              </div>
+            </NuxtMarquee>
+          </div>
         </div>
+
       </div>
     </hero-section>
   </section>
-  <section id="aboutIndex" class="min-h-screen lg:my-16">
+  <section id="aboutIndex" class="min-h-screen sm:pt-16">
     <div class="grid flex-col p-6 min-h-screen">
       <div class="flex justify-center items-center flex-col"
            v-gsap.whenVisible.fromTo="[{autoAlpha: 0, y:100},{autoAlpha: 1,y:0}]">
@@ -90,10 +108,26 @@ const taglines = computed(() => t("profile.taglines"))
   .head-tagline {
     @apply flex sm:gap-6 font-medium sm:text-xl text-xs gap-3 mt-3;
   }
+
+  .resume-and-down {
+    @apply flex ;
+
+    a {
+      @apply flex items-center justify-center border sm:text-2xl px-2 sm:px-6 py-1 sm:py-3 text-xs font-thin;
+    }
+
+    a:hover{
+      background: #161616;
+    }
+
+    svg {
+      @apply w-3 sm:w-8
+    }
+  }
 }
 
 .running-text {
-  @apply flex items-end justify-end pb-6 overflow-hidden text-white;
+  @apply flex items-end justify-end pb-6 overflow-hidden text-white mt-12;
 
   p {
     @apply text-xs sm:text-sm;
@@ -124,7 +158,8 @@ const taglines = computed(() => t("profile.taglines"))
   .cta-about {
     @apply grid sm:grid-cols-2 sm:gap-2 sm:my-0 lg:px-8 py-3;
     color: #317ABE;
-    p{
+
+    p {
       @apply text-black
     }
   }
