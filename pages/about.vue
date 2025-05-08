@@ -102,10 +102,10 @@ const futures = computed(() => t('futures.detail'))
 
 
 .highlight-container {
-  @apply sm:grid grid-cols-2 sm:my-12 my-6;
+  @apply sm:grid grid-cols-2 lg:my-12 my-6;
 
   .title-container {
-    @apply flex flex-col mb-3 sm:mb-0 sm:ml-32 mb-6;
+    @apply flex flex-col sm:mb-0 lg:ml-32 mb-6;
 
     p {
       @apply text-sm;
@@ -134,7 +134,7 @@ const futures = computed(() => t('futures.detail'))
 }
 
 #aboutSection {
-  @apply min-h-screen px-6 sm:px-32 sm:my-24 flex-col flex gap-6 my-12
+  @apply min-h-screen px-6 lg:px-32 lg:my-24 flex-col flex gap-6 my-12
 }
 
 

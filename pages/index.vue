@@ -33,7 +33,7 @@ const taglines = computed(() => t("profile.taglines"))
       </div>
     </hero-section>
   </section>
-  <section id="aboutIndex" class="min-h-screen sm:my-16">
+  <section id="aboutIndex" class="min-h-screen lg:my-16">
     <div class="grid flex-col p-6 min-h-screen">
       <div class="flex justify-center items-center flex-col"
            v-gsap.whenVisible.fromTo="[{autoAlpha: 0, y:100},{autoAlpha: 1,y:0}]">
@@ -46,7 +46,7 @@ const taglines = computed(() => t("profile.taglines"))
           </p>
         </div>
       </div>
-      <NuxtLink :to="localeRoute('/about')" class="cta-about px-8 py-3"
+      <NuxtLink :to="localeRoute('/about')" class="cta-about"
                 v-gsap.whenVisible.fromTo="[{autoAlpha: 0, y:100},{autoAlpha: 1,y:0}]">
         <div class="flex flex-col justify-center items-center">
           <div v-for="{title, description} in taglines" class=" tagline" :key="title">
@@ -54,7 +54,7 @@ const taglines = computed(() => t("profile.taglines"))
             <p>{{ description }}</p>
           </div>
         </div>
-        <div class="flex justify-center items-center flex-col my-12 sm:my-0">
+        <div class="flex justify-center items-center flex-col my-3 sm:my-0 border sm:border-none py-6 sm:py-0">
           <h2 class=" sm:text-3xl text-xl font-semibold!">{{ $t('profile.about_cta') }}</h2>
           <svg width="70" height="16" viewBox="0 0 70 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M62.3431 13.6569L68 8.00001" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
@@ -122,7 +122,7 @@ const taglines = computed(() => t("profile.taglines"))
   }
 
   .cta-about {
-    @apply grid sm:grid-cols-2 sm:gap-2 sm:my-0;
+    @apply grid sm:grid-cols-2 sm:gap-2 sm:my-0 lg:px-8 py-3;
     color: #317ABE;
     p{
       @apply text-black

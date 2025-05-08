@@ -15,18 +15,19 @@ const {localeRoute} = useI18n()
     <div class="flex flex-col gap-4">
       <div class="grid gap-2">
         <p>Email :</p>
-        <a href="mailto:farhanshidayat@gmail.com">farhanshidayat@gmail.com</a>
+        <a class="email-button" href="mailto:farhanshidayat@gmail.com">farhanshidayat@gmail.com</a>
       </div>
       <p>Jakarta, Indonesia</p>
     </div>
     <div class="my-3">
-      <ul class="flex flex-col gap-2">
+      <ul class="contact-list">
         <li v-for="{title,link} in contacts" class="flex items-center gap-1">
-          <a class="text-xs sm:text-sm" :href="link" target="_blank">{{ title }}</a>
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-            <!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE -->
-            <path fill="currentColor" d="M6.4 18L5 16.6L14.6 7H6V5h12v12h-2V8.4z"/>
-          </svg>
+          <a class="text-xs sm:text-sm" :href="link" target="_blank">{{ title }}
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+              <!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE -->
+              <path fill="currentColor" d="M6.4 18L5 16.6L14.6 7H6V5h12v12h-2V8.4z"/>
+            </svg>
+          </a>
         </li>
       </ul>
     </div>
@@ -55,7 +56,7 @@ const {localeRoute} = useI18n()
 
 <style scoped>
 footer {
-  @apply w-full text-white sm:px-32 px-2 py-3 grid grid-rows-4 gap-3  ;
+  @apply w-full text-white lg:px-32 px-2 py-3 grid grid-rows-4 gap-3  ;
   background: #317ABE;
 
   p {
@@ -76,5 +77,25 @@ footer {
   }
 }
 
+.email-button {
+  @apply sm:text-sm text-xs ;
+  display: block;
+}
 
+.email-button:hover {
+  color: #f7ec13;
+  transition: ease 0.7s;
+}
+
+.contact-list {
+  @apply flex flex-col gap-2;
+
+  a {
+    @apply flex gap-2
+  }
+  li a:hover {
+    color: #f7ec13;
+    transition: ease 0.7s;
+  }
+}
 </style>
