@@ -7,12 +7,12 @@ const handleError = () => clearError({redirect: '/'})
   <hero-section>
     <div class="h-screen flex flex-col gap-6 items-center justify-center text-center p-6">
       <div>
-        <h1 class="glitch text-8xl font-semibold">
+        <h1 class="glitch font-semibold" @click="handleError">
           <span>404</span>
           404
           <span>404</span>
         </h1>
-        <p class="font-thin text-xs">This page could not be found</p>
+        <p class="font-thin text-xs">This page could not be found, click 404 to go home.</p>
       </div>
     </div>
   </hero-section>
@@ -34,13 +34,11 @@ const handleError = () => clearError({redirect: '/'})
 }
 
 .glitch {
-  @apply relative;
+  font-size: 180px;
+  @apply relative cursor-pointer;
   text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
   0.025em 0.04em 0 #fffc00;
   animation: glitch 725ms infinite;
-  h1 {
-    @apply sm:text-6xl text-xl font-semibold italic
-  }
 }
 
 .glitch span {
