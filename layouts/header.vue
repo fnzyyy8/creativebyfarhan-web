@@ -116,7 +116,7 @@ nav {
   @apply fixed top-0 flex w-full flex-col z-50 ;
 
   .navbar {
-    @apply sm:h-12 grid grid-cols-3 items-center sm:px-10 px-3 my-3
+    @apply sm:h-12 grid grid-cols-3 items-center sm:px-10 px-3 sm:my-3 my-0
   }
 }
 
