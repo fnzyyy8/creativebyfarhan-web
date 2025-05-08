@@ -10,12 +10,12 @@ const {localeRoute} = useI18n()
 <template>
   <footer>
     <div>
-      <h1 class="sm:text-6xl text-4xl font-semibold">LETS DO MORE...</h1>
+      <h1 class="sm:text-6xl text-4xl font-semibold">LETS DO MORE ...</h1>
     </div>
-    <div class="flex flex-col gap-2">
-      <div>
+    <div class="flex flex-col gap-4">
+      <div class="grid gap-2">
         <p>Email :</p>
-        <a href="mailto:admin@creativebyfarhan.com">admin@creativebyfarhan.com</a>
+        <a href="mailto:farhanshidayat@gmail.com">farhanshidayat@gmail.com</a>
       </div>
       <p>Jakarta, Indonesia</p>
     </div>
@@ -57,18 +57,24 @@ const {localeRoute} = useI18n()
 footer {
   @apply w-full text-white sm:px-32 px-2 py-3 grid grid-rows-4 gap-3  ;
   background: #317ABE;
-  p{
-    @apply text-xs sm:text-xl
+
+  p {
+    @apply text-xs sm:text-sm
   }
 }
 
-.brand-nav{
+.brand-nav {
   @apply grid sm:grid-cols-2 justify-center sm:justify-start items-end sm:min-h-full;
+
   li a {
-    @apply block px-3
+    @apply block pr-12 text-sm
+  }
+
+  li a:hover {
+    color: #f7ec13;
+    transition: ease 0.7s;
   }
 }
-
 
 
 </style>
