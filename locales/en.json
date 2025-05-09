@@ -7,16 +7,6 @@
     {
       "title": "About",
       "page": "about"
-    },
-    {
-      "title": "Certificate",
-      "page": "cert"
-    }
-  ],
-  "contacts" :[
-    {
-      "title" : "Facebook",
-      "link" : "www.facebook.com"
     }
   ]
 }
