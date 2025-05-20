@@ -32,20 +32,17 @@ const taglines = computed(() => t('profile.taglines'))
       <div class="container-index">
         <div class=" text-justify grid col-start-1 col-end-5 row-start-1 row-end-1 h-full items-center">
           <h2 class="font-thin">
-            <span class="text-blue-700">Creative by Farhan</span> is my personal portfolio website, fully created to
-            fulfill my desire to produce works
-            based on everything I have learned so far. In addition, I showcase several portfolios made using other tools
-            that might be useful for your company.
+            <span class="text-blue-700">{{t('about_web.highlight')}}</span> {{
+              t('about_web.text')}}
           </h2>
         </div>
 
         <div class="col-start-1 col-end-3 row-start-2 row-end-4">
           <div class="flex flex-col h-full justify-center">
             <div class="flex flex-col gap-6 ml-12 max-w-xl">
-              <h2>Who is Farhan</h2>
+              <h2>{{ t('profile.big_text') }}</h2>
               <p>
-                A freelancer skilled in design and coding, experienced in various fields, and proficient in using a wide
-                range of tools that can benefit your company.
+                {{t('profile.description')}}
               </p>
             </div>
           </div>
@@ -64,31 +61,31 @@ const taglines = computed(() => t('profile.taglines'))
 
         <div class="col-start-1 col-end-5 row-start-4 row-end-5 grid grid-cols-4 grid-rows-1">
           <div class="col-start-1 col-end-3 h-full w-full items-center p-3 flex ml-12">
-            <h2>PAST EXPERIENCE</h2>
+            <h2>{{t('profile.experience')}}</h2>
           </div>
-          <ul class="col-start-3 col-end-5 grid grid-cols-3">
+          <ul class="col-start-3 col-end-5 grid gap-3 grid-cols-3">
             <li class="flex justify-center items-center">
-              <img src="/public/company-logo/Sena.svg" alt="sena" class="w-52">
+              <img src="/public/company-logo/Sena.svg" alt="sena" class="w-36">
             </li>
             <li class="flex justify-center items-center">
-              <img src="/public/company-logo/Samsung.svg" alt="samsung" class="w-52">
+              <img src="/public/company-logo/Samsung.svg" alt="samsung" class="w-36">
             </li>
             <li class="flex justify-center items-center">
-              <img src="/public/company-logo/H&M.svg" alt="h&m" class="w-52">
+              <img src="/public/company-logo/H&M.svg" alt="h&m" class="w-36">
             </li>
           </ul>
         </div>
       </div>
 
     </section>
-    <section>
+<!--    <section>-->
 
-      <div class="container-index">
+<!--      <div class="container-index">-->
 
 
-      </div>
+<!--      </div>-->
 
-    </section>
+<!--    </section>-->
   </section>
 </template>
 
