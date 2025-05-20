@@ -1,224 +1,116 @@
-<script lang="ts" setup>
+<script setup lang="ts">
+import gsap from 'gsap'
+
 const {t, localeRoute} = useI18n()
+import {useSectionObservers} from "~/composables/useSectionObservers";
+import {useHeroAnimation} from "~/composables/useHeroAnimation";
+
+const {pageSection} = useSectionObservers()
+const {heroTagline} = useHeroAnimation()
 
 const taglines = computed(() => t('profile.taglines'))
 
+
 </script>
 
-
-<template id="container">
-  <section id="heroIndex">
-    <hero-section class="hero-section">
-      <div class="grid grid-rows-2 min-h-screen" ref="test">
+<template>
+  <section ref="pageSection">
+    <section class="black-area">
+      <div ref="heroTagline" class="hero-container hero">
         <div class="tagline-box">
-          <h1 v-gsap.delay-100.fromTo="[{opacity:0,x:-20},{opacity:1,x:0}]">Creative By Farhan</h1>
-          <div class="head-tagline">
-            <p v-gsap.delay-200.fromTo="[{opacity:0,x:-20},{opacity:1,x:0}]">Design</p>
-            <p v-gsap.delay-300.fromTo="[{opacity:0,x:-20},{opacity:1,x:0}]">Define</p>
-            <p v-gsap.delay-400.fromTo="[{opacity:0,x:-20},{opacity:1,x:0}]">Develop</p>
+          <h1>Creative By Farhan</h1>
+          <ul class="head-tagline">
+            <li>Design</li>
+            <li>Define</li>
+            <li>Develop</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section>
+
+      <div class="container-index">
+        <div class=" text-justify grid col-start-1 col-end-5 row-start-1 row-end-1 h-full items-center">
+          <h2 class="font-thin">
+            <span class="text-blue-700">Creative by Farhan</span> is my personal portfolio website, fully created to
+            fulfill my desire to produce works
+            based on everything I have learned so far. In addition, I showcase several portfolios made using other tools
+            that might be useful for your company.
+          </h2>
+        </div>
+
+        <div class="col-start-1 col-end-3 row-start-2 row-end-4">
+          <div class="flex flex-col h-full justify-center">
+            <div class="flex flex-col gap-6 ml-12 max-w-xl">
+              <h2>Who is Farhan</h2>
+              <p>
+                A freelancer skilled in design and coding, experienced in various fields, and proficient in using a wide
+                range of tools that can benefit your company.
+              </p>
+            </div>
           </div>
         </div>
-        <div class="overflow-hidden flex flex-col items-center justify-end">
-          <div class="resume-and-down">
-            <a href="https://drive.google.com/file/d/1zrWegQJ_cEavbePFF73dbhmyf3VcSZW7/view?usp=sharing"
-               target="_blank">
-              <span class="mr-3">{{ $t('resume.title') }}</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-                <!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE -->
-                <path fill="currentColor" d="m14 18l-1.4-1.45L16.15 13H4v-2h12.15L12.6 7.45L14 6l6 6z"/>
-              </svg>
-            </a>
-            <a href="#aboutIndex">
-              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
-                <!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE -->
-                <path fill="currentColor" d="M11 4v12.175l-5.6-5.6L4 12l8 8l8-8l-1.4-1.425l-5.6 5.6V4z"/>
-              </svg>
-            </a>
-          </div>
-          <div class="running-text">
-            <NuxtMarquee :speed="40" class="relative z-10 whitespace-nowrap">
-              <div class="flex gap-8 items-center">
-                <template v-for="i in 20" :key="i">
-                  <p class="uppercase">Portfolio by Farhan</p>
-                  <span>
-                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="6" cy="6" r="5.5" stroke="white"/>
-                              <path
-                                  d="M9 7C9 7.79565 8.68393 8.55871 8.12132 9.12132C7.55871 9.68393 6.79565 10 6 10C5.20435 10 4.44129 9.68393 3.87868 9.12132C3.31607 8.55871 3 7.79565 3 7L6 7H9Z"
-                                  stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
-                              <circle cx="4" cy="4" r="1" fill="white"/>
-                              <circle cx="8" cy="4" r="1" fill="white"/>
-                    </svg>
-                  </span>
-                </template>
-              </div>
-            </NuxtMarquee>
+
+        <div
+            class="col-start-3 col-end-5 row-start-2 row-end-4 grid grid-cols-1 grid-rows-3 items-center justify-self-center">
+          <div v-for="{title, description} in taglines" class="flex flex-col gap-3 p-3 max-w-xl h-full justify-between">
+            <div class="flex flex-col gap-3">
+              <h2>{{ title }}</h2>
+              <p>{{ description }}</p>
+            </div>
+            <hr>
           </div>
         </div>
-      </div>
-    </hero-section>
-  </section>
-  <section id="aboutIndex">
-    <div class="main-grid">
-      <div class="title-box">
-        <h2>{{ $t('profile.title') }}</h2>
-      </div>
-      <div class="border grid justify-center items-center col-span-2">
-        <h1>
-          {{ $t('profile.big_text') }}
-        </h1>
-      </div>
-      <div class=" grid col-span-2 border justify-center items-center sm:px-12 px-2">
-        <p>
-          {{ $t('profile.description') }}
-        </p>
-      </div>
-      <div class="flex flex-col col-span-2 row-span-2 max-w-full">
-        <div class="box-tagline group" v-for="{title,description} in taglines">
-          <h3 class="opacity-100 group-hover:opacity-0">{{ title }}</h3>
-          <div
-              class="bg-yellow-100 absolute w-full h-full opacity-0 group-hover:opacity-100 flex flex-col items-center gap-2 p-3 transition duration-200">
-            <h3>{{ title }}</h3>
-            <p class="text-center max-w-xl">{{ description }}</p>
+
+        <div class="col-start-1 col-end-5 row-start-4 row-end-5 grid grid-cols-4 grid-rows-1">
+          <div class="col-start-1 col-end-3 h-full w-full items-center p-3 flex ml-12">
+            <h2>PAST EXPERIENCE</h2>
           </div>
+          <ul class="col-start-3 col-end-5 grid grid-cols-3">
+            <li class="flex justify-center items-center">
+              <img src="/public/company-logo/Sena.svg" alt="sena" class="w-52">
+            </li>
+            <li class="flex justify-center items-center">
+              <img src="/public/company-logo/Samsung.svg" alt="samsung" class="w-52">
+            </li>
+            <li class="flex justify-center items-center">
+              <img src="/public/company-logo/H&M.svg" alt="h&m" class="w-52">
+            </li>
+          </ul>
         </div>
       </div>
-      <NuxtLink :to="localeRoute('/about')"
-                class=" cta-about">
-        <div class="cta-textArea">
-          <h3 class="">{{ $t('profile.about_cta') }}</h3>
-          <svg width="70" height="16" viewBox="0 0 70 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M62.3431 13.6569L68 8.00001" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-            <path d="M2 8H68" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
-            <path d="M62.3431 2.34314L68 7.99999" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-          </svg>
-        </div>
-      </NuxtLink>
-      <div class="title-box">
-        <h2>{{ $t('profile.experience') }}</h2>
+
+    </section>
+    <section>
+
+      <div class="container-index">
+
+
       </div>
-      <div class="grid grid-cols-3 col-span-4 h-full">
-        <div class="grid col-span-1 justify-center items-center border relative group">
-          <img src="/public/company-logo/Sena.svg" alt="sena">
-          <div class="absolute opacity-0 grid bg-yellow-200 h-full w-full group-hover:opacity-100">
-            <h3>Test</h3>
-          </div>
-        </div>
-        <div class="grid col-span-1 p-3 justify-center items-center border">
-          <img src="/public/company-logo/Samsung.svg" alt="samsung">
-        </div>
-        <div class="grid col-span-1 justify-center items-center border">
-          <img src="/public/company-logo/H&M.svg" alt="h&m">
-        </div>
-      </div>
-    </div>
+
+    </section>
   </section>
 </template>
 
+<style scoped>
+.hero {
+  @apply flex justify-center items-center ;
 
-<style>
-.hero-section {
-  @apply sm:px-10 px-6 flex flex-col justify-center;
+}
 
-  h1 {
-    @apply sm:text-8xl text-3xl font-bold;
-  }
+.tagline-box {
+  @apply flex flex-col gap-4;
 
   .head-tagline {
-    @apply flex sm:gap-6 font-medium sm:text-xl text-xs gap-3 mt-3;
-  }
-
-  .resume-and-down {
-    @apply flex ;
-
-    a {
-      @apply flex items-center justify-center border sm:text-2xl px-2 sm:px-6 py-1 sm:py-3 text-xs font-thin;
-    }
-
-    a:hover {
-      @apply transition-colors duration-200 ease-in-out;
-      background: #161616;
-    }
-
-    a:hover {
-      color: #f7ec13;
-      border-color: #f7ec13;
-    }
-
-    svg {
-      @apply w-3 sm:w-8
-    }
-  }
-
-  .tagline-box {
-    @apply flex flex-col items-center justify-center row-span-3 cursor-pointer;
-  }
-
-  .running-text {
-    @apply flex items-end justify-end pb-6 overflow-hidden text-white mt-12 w-full;
+    @apply flex flex-row gap-6 items-center ;
 
     p {
-      @apply text-xs sm:text-sm;
+      @apply text-lg font-medium;
     }
   }
-
 }
 
-
-#aboutIndex {
-
-  .main-grid {
-    @apply grid grid-cols-4 min-h-screen max-w-full ;
-
-    .title-box {
-      @apply border grid col-span-4 justify-center items-center;
-    }
-
-    h1 {
-      @apply sm:text-6xl text-xl sm:font-semibold font-medium;
-    }
-
-    h2 {
-      @apply sm:text-2xl text-xl sm:font-semibold font-medium;
-    }
-
-    h3 {
-      @apply sm:text-xl text-sm sm:font-semibold font-medium;
-    }
-
-    p {
-      @apply sm:text-2xl text-xs font-light;
-    }
-
-    img {
-      @apply w-16 sm:w-32;
-    }
-
-    .box-tagline {
-      @apply relative sm:p-3 p-1 border flex justify-center items-center col-span-2 cursor-pointer h-full;
-
-      p {
-        @apply text-sm;
-      }
-    }
-
-    .cta-about{
-      @apply  border grid row-span-2 col-span-2 justify-center items-center w-full;
-
-      .cta-textArea {
-        @apply flex flex-col justify-center items-center gap-3;
-      }
-    }
-
-    .cta-about:hover {
-     @apply transition duration-200 ease-in-out;
-      background: #317ABE;
-      color: #DDDDDD;
-    }
-
-  }
-
+.container-index{
+  @apply min-h-screen px-16 grid grid-cols-4 grid-rows-4;
 }
-
-
 </style>

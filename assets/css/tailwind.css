@@ -6,7 +6,22 @@
 
 html{
     font-family: Switzer-Regular,sans-serif;
-
     scroll-behavior: smooth;
+    overflow: hidden;
 }
 
+@layer components{
+    h1{
+        @apply text-6xl font-bold;
+    }
+    h2{
+        @apply text-4xl font-semibold;
+    }
+    h3{
+        @apply text-xl font-semibold;
+    }
+}
+
+.hero-container{
+    @apply min-h-screen bg-black text-white;
+}

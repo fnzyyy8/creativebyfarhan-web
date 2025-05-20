@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import {VueLenis} from "lenis/vue";
+import ContactsDialog from "~/components/contacts-dialog.vue";
 
 const route = useRoute()
 
@@ -16,7 +18,9 @@ useHead(() => ({
 <template>
   <div>
     <NuxtLayout>
-      <NuxtPage/>
+      <VueLenis root>
+        <NuxtPage/>
+      </VueLenis>
     </NuxtLayout>
   </div>
 </template>
