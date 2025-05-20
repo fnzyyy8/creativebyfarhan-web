@@ -1,15 +1,42 @@
 <script setup lang="ts">
 import gsap from 'gsap'
+import {ScrollTrigger} from "gsap/ScrollTrigger";
+const heroTagline = ref()
 
-const {t, localeRoute} = useI18n()
+const {t} = useI18n()
 import {useSectionObservers} from "~/composables/useSectionObservers";
-import {useHeroAnimation} from "~/composables/useHeroAnimation";
+
 
 const {pageSection} = useSectionObservers()
-const {heroTagline} = useHeroAnimation()
 
 const taglines = computed(() => t('profile.taglines'))
 
+const animateHero = () => {
+  gsap.registerPlugin(ScrollTrigger)
+
+  const tl = gsap.timeline()
+  const items = heroTagline.value.querySelectorAll('li')
+  const head = heroTagline.value.querySelectorAll('h1')
+
+
+  tl.from(head, {
+    duration: 0.3,
+    x: -20,
+    opacity: 0,
+    ease: "expo.out"
+  }).from(items, {
+    duration: 0.3,
+    ease: 'expo.out',
+    x: -10,
+    opacity: 0,
+    stagger: 0.3
+  })
+
+}
+
+onMounted(() => {
+  animateHero()
+})
 
 </script>
 
@@ -32,8 +59,9 @@ const taglines = computed(() => t('profile.taglines'))
       <div class="container-index">
         <div class=" text-justify grid col-start-1 col-end-5 row-start-1 row-end-1 h-full items-center">
           <h2 class="font-thin">
-            <span class="text-blue-700">{{t('about_web.highlight')}}</span> {{
-              t('about_web.text')}}
+            <span class="text-blue-700">{{ t('about_web.highlight') }}</span> {{
+              t('about_web.text')
+            }}
           </h2>
         </div>
 
@@ -42,7 +70,7 @@ const taglines = computed(() => t('profile.taglines'))
             <div class="flex flex-col gap-6 ml-12 max-w-xl">
               <h2>{{ t('profile.big_text') }}</h2>
               <p>
-                {{t('profile.description')}}
+                {{ t('profile.description') }}
               </p>
             </div>
           </div>
@@ -61,7 +89,7 @@ const taglines = computed(() => t('profile.taglines'))
 
         <div class="col-start-1 col-end-5 row-start-4 row-end-5 grid grid-cols-4 grid-rows-1">
           <div class="col-start-1 col-end-3 h-full w-full items-center p-3 flex ml-12">
-            <h2>{{t('profile.experience')}}</h2>
+            <h2>{{ t('profile.experience') }}</h2>
           </div>
           <ul class="col-start-3 col-end-5 grid gap-3 grid-cols-3">
             <li class="flex justify-center items-center">
@@ -78,14 +106,14 @@ const taglines = computed(() => t('profile.taglines'))
       </div>
 
     </section>
-<!--    <section>-->
+    <!--    <section>-->
 
-<!--      <div class="container-index">-->
+    <!--      <div class="container-index">-->
 
 
-<!--      </div>-->
+    <!--      </div>-->
 
-<!--    </section>-->
+    <!--    </section>-->
   </section>
 </template>
 
@@ -107,7 +135,7 @@ const taglines = computed(() => t('profile.taglines'))
   }
 }
 
-.container-index{
+.container-index {
   @apply min-h-screen px-16 grid grid-cols-4 grid-rows-4;
 }
 </style>

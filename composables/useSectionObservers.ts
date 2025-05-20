@@ -21,10 +21,10 @@ export function useSectionObservers() {
 
             if (blackArea) {
                 sectionStore.pageCurrentSection = "black-area"
-                console.log(sectionStore.pageCurrentSection)
+                // console.log(sectionStore.pageCurrentSection)
             } else if (!blackArea) {
                 sectionStore.pageCurrentSection = "default-area"
-                console.log(sectionStore.pageCurrentSection)
+                // console.log(sectionStore.pageCurrentSection)
             }
         }, {
             rootMargin: "-5% 0px 0px 0px",

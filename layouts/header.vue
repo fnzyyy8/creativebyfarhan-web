@@ -1,20 +1,15 @@
 <script setup lang="ts">
-import gsap from 'gsap'
 import {useSectionStore} from "~/stores/sectionStore";
 import {useContacts} from "~/stores/contactsStore";
 
 
-const {getLocale, localeRoute, getLocales, switchLocale} = useI18n()
-const route = useRoute()
+const {localeRoute} = useI18n()
 
 const sectionStore = useSectionStore()
 const blackArea = computed(() => sectionStore.pageCurrentSection === 'black-area')
 const navLists = inject('navLists')
 const contactStore = useContacts()
 const {openContactModal} = contactStore
-
-
-
 
 
 </script>

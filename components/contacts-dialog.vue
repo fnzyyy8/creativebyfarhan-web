@@ -55,27 +55,19 @@ const closeContactModal = async () => {
   <VueLenis>
     <div class="outer-container-contact" v-show="isContactModalOpen" ref="modalRef">
       <div class="contact">
-        <div class="button-close justify-center items-center flex">
+        <div class="button-close mt-3 ml-3">
           <button @click="closeContactModal" type="button">
             close
           </button>
         </div>
         <div class="container-contact">
-          <h1>Contacts</h1>
+          <h1>Contact</h1>
         </div>
         <div class="socialMedia">
           <ul class="grid grid-rows-3 gap-x-12">
             <li v-for="{title,link} in contacts">
               <a :href="link" target="_blank">{{ title }}</a>
             </li>
-          </ul>
-        </div>
-        <div class="resume">
-          <ul class="grid grid-rows-2 gap-x-12">
-            <li>
-              <a href="/">Resume Eng</a>
-            </li>
-            <li><a href="/">Resume Ind</a></li>
           </ul>
         </div>
       </div>
@@ -104,7 +96,7 @@ const closeContactModal = async () => {
 }
 
 .socialMedia {
-  @apply col-start-2 col-end-6 row-start-3 row-end-4 grid grid-cols-1 grid-rows-1;
+  @apply col-start-2 col-end-12 row-start-3 row-end-4 grid grid-cols-1 grid-rows-1;
 }
 
 .resume {

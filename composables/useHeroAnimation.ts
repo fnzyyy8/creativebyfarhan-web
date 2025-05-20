@@ -1,8 +1,12 @@
 import gsap from "gsap";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
+import { ref, onMounted } from "vue";
+
 
 export function useHeroAnimation() {
     const heroTagline = ref()
+
+    gsap.registerPlugin(ScrollTrigger)
 
     function animateHero() {
         const tl = gsap.timeline()
@@ -20,7 +24,6 @@ export function useHeroAnimation() {
             })
     }
 
-    gsap.registerPlugin(ScrollTrigger)
 
     function zoomTagline() {
         gsap.to(heroTagline.value.querySelector('.tagline-box'), {
