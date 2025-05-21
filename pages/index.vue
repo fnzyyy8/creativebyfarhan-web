@@ -76,7 +76,7 @@ onMounted(() => {
 
         <div
             class="col-start-3 col-end-5 row-start-2 row-end-4 grid grid-cols-1 grid-rows-3 gap-3">
-          <div v-for="{number,title, description} in taglines" class="flex flex-row gap-6 items-center bg-gray-100 shadow-md p-3 rounded-2xl">
+          <div v-for="{number,title, description} in taglines" class="flex flex-row gap-6 items-center bg-gray-100 shadow-md p-3 rounded-2xl cursor-pointer hover:scale-105 transition-all duration-200">
             <h1 class="text-blue-700">{{ number }}</h1>
             <div class="flex flex-col justify-center gap-3">
               <h2>{{ title }}</h2>

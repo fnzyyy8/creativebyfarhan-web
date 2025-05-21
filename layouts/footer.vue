@@ -9,105 +9,44 @@ const {localeRoute} = useI18n()
 
 <template>
   <footer>
-    <div>
-      <h1 class="sm:text-6xl text-4xl font-semibold">LETS DO MORE ...</h1>
-    </div>
-    <div class="flex flex-col gap-4">
-      <div class="grid gap-2">
-        <p>Email :</p>
-        <a class="email-button" href="mailto:farhanshidayat@gmail.com">farhanshidayat@gmail.com</a>
+    <div class="footer-container">
+      <div class="col-start-2 col-end-4 row-start-2 row-end-3 flex justify-center items-center">
+        <h1>LET'S DO MORE</h1>
       </div>
-      <p>Jakarta, Indonesia</p>
-    </div>
-    <div class="my-3">
-      <ul class="contact-list">
-        <li v-for="{title,link} in contacts" class="flex items-center gap-1">
-          <a class="text-xs sm:text-sm" :href="link" target="_blank"
-          >{{ title }}
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
-              <!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE -->
-              <path fill="currentColor" d="M6.4 18L5 16.6L14.6 7H6V5h12v12h-2V8.4z"/>
-            </svg>
-          </a>
+      <ul class="col-start-1 col-end-1 row-start-4 items-center row-end-4 flex flex-row gap-3">
+        <li v-for="{title, link} in contacts">
+          <a :href="link">{{ title.toUpperCase() }}</a>
         </li>
       </ul>
-    </div>
-    <div class="brand-nav">
-      <div>
-        <ul class="sm:flex justify-start hidden">
-          <template v-for="{title,page} in navLists">
-            <li>
-              <NuxtLink :to="localeRoute(page)">
-                {{ title }}
-              </NuxtLink>
-            </li>
-          </template>
-        </ul>
+      <ul class="col-start-4 col-end-5 row-start-4 row-end-5 flex flex-row gap-3 justify-end items-center">
+        <li v-for="{title, page} in navLists">
+          <NuxtLink :to="localeRoute(page)">{{ title }}</NuxtLink>
+        </li>
+      </ul>
+      <div class="row-start-4 row-end-5 col-start-2 col-end-4 flex justify-center items-center">
+        <p>&copy; {{year}} - Creative by Farhan </p>
       </div>
-      <div class="copyright">
-        <p>
-          <span>
-            &copy;
-          </span>{{ year }} - <span>Creative</span> By Far<span>han</span>
-        </p>
-      </div>
-
     </div>
-
   </footer>
 </template>
 
 <style scoped>
 footer {
-  @apply w-full text-white lg:px-32 px-2 py-3 grid grid-rows-4 gap-3  ;
+  @apply w-full px-16 py-6;
   background: #317ABE;
-
-  p {
-    @apply text-xs sm:text-sm
-  }
 }
 
-.brand-nav {
-  @apply grid sm:grid-cols-2 justify-center sm:justify-start items-end sm:min-h-full;
-
-  li a {
-    @apply block pr-12 text-sm
-  }
-
-  li a:hover {
-    color: #f7ec13;
-    transition: ease 0.7s;
-  }
+.footer-container {
+  @apply grid grid-cols-4 grid-rows-4 text-white;
 }
 
-.email-button {
-  @apply sm:text-sm text-xs ;
-  display: block;
-}
 
-.email-button:hover {
+li a {
+  @apply block transition-colors duration-200;
+}
+li a:hover {
+  @apply transition-colors duration-200 scale-95;
   color: #f7ec13;
-  transition: ease 0.7s;
 }
 
-.contact-list {
-  @apply flex flex-col gap-2;
-
-  a {
-    @apply flex gap-2
-  }
-
-  li a:hover {
-    color: #f7ec13;
-    transition: ease 0.7s;
-  }
-}
-
-.copyright {
-  @apply flex justify-end ;
-
-  p span {
-    color: #f7ec13;
-  }
-}
 </style>

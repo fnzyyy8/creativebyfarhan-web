@@ -1,11 +1,11 @@
 {
   "navLists": [
     {
-      "title": "Home",
+      "title": "HOME",
       "page": "/"
     },
     {
-      "title": "About",
+      "title": "ABOUT",
       "page": "about"
     }
   ]

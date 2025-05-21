@@ -1,11 +1,11 @@
 {
   "navLists": [
     {
-      "title": "Utama",
+      "title": "UTAMA",
       "page": "/"
     },
     {
-      "title": "Tentang",
+      "title": "TENTANG",
       "page": "about"
     }
   ]
