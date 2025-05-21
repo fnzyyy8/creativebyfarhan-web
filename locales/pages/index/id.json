@@ -9,16 +9,19 @@
     "description": "Seorang pekerja lepas dengan keahlian dalam desain dan pemrograman, berpengalaman di berbagai bidang, serta mahir menggunakan berbagai alat yang dapat bermanfaat bagi perusahaan Anda.",
     "taglines": [
       {
+        "number": "01",
         "title": "DESAIN",
-        "description": "Merancang untuk berbagai proyek dengan mengandalkan kreativitas dan keahlian yang telah diasah selama lebih dari enam tahun."
+        "description": "Membuat desain proyek sesuai dengan kebutuhan klien serta memastikan desain tersebut mematuhi standar dan ketentuan yang berlaku."
       },
       {
+        "number": "02",
         "title": "DEFINISI",
-        "description": "Menjelaskan dan bertanggung jawab atas desain yang telah diselesaikan, memahami prosesnya, serta mengomunikasikannya secara efektif kepada klien."
+        "description": "Menjabarkan prototype dari pekerjaan yang telah dirumuskan, serta memastikan informasi yang disampaikan jelas dan dapat dipertanggungjawabkan."
       },
       {
+        "number": "03",
         "title": "PENGEMBANGAN",
-        "description": "Mengembangkan kebutuhan klien berdasarkan penjelasan mereka serta secara konsisten memelihara sistem yang telah dibangun."
+        "description": "Melaksanakan eksekusi berdasarkan prototype dan desain yang telah disetujui oleh klien, serta memastikan pelaksanaan proyek berjalan sesuai dengan jadwal yang telah disepakati."
       }
     ],
     "about_cta": "LEBIH LANJUT",

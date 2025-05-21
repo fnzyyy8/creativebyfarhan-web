@@ -43,7 +43,7 @@ onMounted(() => {
 <template>
   <section ref="pageSection">
     <section class="black-area">
-      <div ref="heroTagline" class="hero-container hero">
+      <div ref="heroTagline" class="grid-container section-area hero-container ">
         <div class="tagline-box">
           <h1>Creative By Farhan</h1>
           <ul class="head-tagline">
@@ -56,7 +56,7 @@ onMounted(() => {
     </section>
     <section>
 
-      <div class="container-index">
+      <div class="grid-container section-area">
         <div class=" text-justify grid col-start-1 col-end-5 row-start-1 row-end-1 h-full items-center">
           <h2 class="font-thin">
             <span class="text-blue-700">{{ t('about_web.highlight') }}</span> {{
@@ -65,41 +65,36 @@ onMounted(() => {
           </h2>
         </div>
 
-        <div class="col-start-1 col-end-3 row-start-2 row-end-4">
-          <div class="flex flex-col h-full justify-center">
-            <div class="flex flex-col gap-6 ml-12 max-w-xl">
-              <h2>{{ t('profile.big_text') }}</h2>
-              <p>
-                {{ t('profile.description') }}
-              </p>
-            </div>
+        <div class="col-start-1 col-end-3 row-start-2 row-end-4 flex items-center">
+          <div class="flex flex-col gap-3 ml-12 max-w-xl">
+            <h2>{{ t('profile.big_text') }}</h2>
+            <p>
+              {{ t('profile.description') }}
+            </p>
           </div>
         </div>
 
         <div
-            class="col-start-3 col-end-5 row-start-2 row-end-4 grid grid-cols-1 grid-rows-3 items-center justify-self-center">
-          <div v-for="{title, description} in taglines" class="flex flex-col gap-3 p-3 max-w-xl h-full justify-between">
-            <div class="flex flex-col gap-3">
+            class="col-start-3 col-end-5 row-start-2 row-end-4 grid grid-cols-1 grid-rows-3 gap-3">
+          <div v-for="{number,title, description} in taglines" class="flex flex-row gap-6 items-center bg-gray-100 shadow-md p-3 rounded-2xl">
+            <h1 class="text-blue-700">{{ number }}</h1>
+            <div class="flex flex-col justify-center gap-3">
               <h2>{{ title }}</h2>
-              <p>{{ description }}</p>
+              <p class="max-w-full">{{ description }}</p>
             </div>
-            <hr>
           </div>
         </div>
 
-        <div class="col-start-1 col-end-5 row-start-4 row-end-5 grid grid-cols-4 grid-rows-1">
-          <div class="col-start-1 col-end-3 h-full w-full items-center p-3 flex ml-12">
-            <h2>{{ t('profile.experience') }}</h2>
-          </div>
-          <ul class="col-start-3 col-end-5 grid gap-3 grid-cols-3">
+        <div class="col-start-1 col-end-5 row-start-4 row-end-4 flex flex-col items-center justify-center gap-3">
+          <ul class="flex gap-32">
             <li class="flex justify-center items-center">
-              <img src="/public/company-logo/Sena.svg" alt="sena" class="w-36">
+              <img src="/public/company-logo/Sena.svg" alt="sena" class="w-32">
             </li>
             <li class="flex justify-center items-center">
-              <img src="/public/company-logo/Samsung.svg" alt="samsung" class="w-36">
+              <img src="/public/company-logo/Samsung.svg" alt="samsung" class="w-32">
             </li>
             <li class="flex justify-center items-center">
-              <img src="/public/company-logo/H&M.svg" alt="h&m" class="w-36">
+              <img src="/public/company-logo/H&M.svg" alt="h&m" class="w-32">
             </li>
           </ul>
         </div>
@@ -118,13 +113,9 @@ onMounted(() => {
 </template>
 
 <style scoped>
-.hero {
-  @apply flex justify-center items-center ;
-
-}
 
 .tagline-box {
-  @apply flex flex-col gap-4;
+  @apply flex flex-col gap-4 col-start-2 col-end-4 row-start-2 row-end-4 justify-center justify-self-center;
 
   .head-tagline {
     @apply flex flex-row gap-6 items-center ;
@@ -135,7 +126,5 @@ onMounted(() => {
   }
 }
 
-.container-index {
-  @apply min-h-screen px-16 grid grid-cols-4 grid-rows-4;
-}
+
 </style>

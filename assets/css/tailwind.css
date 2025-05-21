@@ -25,3 +25,11 @@ html{
 .hero-container{
     @apply min-h-screen bg-black text-white;
 }
+
+.section-area{
+    @apply px-16
+}
+
+.grid-container {
+    @apply min-h-screen grid grid-cols-4 grid-rows-4;
+}

@@ -9,16 +9,19 @@
     "description": "A freelancer skilled in design and coding, experienced in various fields, and proficient in using a wide range of tools that can benefit your company.",
     "taglines": [
       {
+        "number": "01",
         "title": "DESIGN",
-        "description": "Designing for various projects, relying on creativity and skills honed for over six years."
+        "description": "Create project designs based on client needs while ensuring compliance with applicable standards and regulations."
       },
       {
+        "number": "02",
         "title": "DEFINE",
-        "description": "Explaining and taking responsibility for completed designs, understanding the process, and communicating it effectively to clients."
+        "description": "Outline the prototype of the finalized work and ensure that all communicated information is clear and accountable."
       },
       {
+        "number": "03",
         "title": "DEVELOP",
-        "description": "Developing client needs based on their explanations and consistently maintaining the established systems."
+        "description": "Execute the approved prototype and design, ensuring that the project progresses according to the agreed timeline."
       }
     ],
     "about_cta": "LEARN MORE",

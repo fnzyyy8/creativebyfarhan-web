@@ -27,7 +27,7 @@ export function useSectionObservers() {
                 // console.log(sectionStore.pageCurrentSection)
             }
         }, {
-            rootMargin: "-5% 0px 0px 0px",
+            rootMargin: "-10% 0px 0px 0px",
             threshold: 0,
         })
 

@@ -16,38 +16,36 @@ const {openContactModal} = contactStore
 
 <template>
   <header>
-    <div class="flex mx-24 items-center h-full justify-between">
-      <div class="button-box">
-        <icon-cbf/>
-      </div>
-      <nav ref="list" :class="['flex gap-32 h-full rounded-full px-4 backdrop-blur']">
-        <ul>
-          <li v-for="{title, page} in navLists" :key="title">
-            <NuxtLink
-                :class="[blackArea ? 'text-white' : 'text-black']"
-                :to="localeRoute(page)"><span class="box"/>{{ title }}
-            </NuxtLink>
-          </li>
-        </ul>
-        <div class="flex items-center">
-          <button @click="openContactModal()" type="button"
-                  :class="['px-6 py-1 rounded-xl',blackArea ? 'button-black' : 'button-white']">
-            Contact
-          </button>
-        </div>
-      </nav>
+    <div class="glass-area col-start-1 justify-self-start">
+      <icon-cbf/>
     </div>
+    <nav class="glass-area gap-16 col-end-7 justify-self-end">
+      <ul>
+        <li v-for="{title, page} in navLists" :key="title">
+          <NuxtLink
+              :class="[blackArea ? 'text-white' : 'text-black']"
+              :to="localeRoute(page)"><span class="box"/>{{ title }}
+          </NuxtLink>
+        </li>
+      </ul>
+      <div class="flex items-center">
+        <button @click="openContactModal()" type="button"
+                :class="['px-6 py-1 rounded-xl',blackArea ? 'button-black' : 'button-white']">
+          Contact
+        </button>
+      </div>
+    </nav>
   </header>
 </template>
 
 <style scoped>
 
 header {
-  @apply h-16 w-full fixed top-6 z-30 bg-transparent;
+  @apply w-full fixed top-16 z-30 bg-transparent grid grid-cols-6 px-16;
 }
 
-.button-box {
-  @apply relative min-w-14 h-full grid justify-center items-center text-white backdrop-blur rounded-full;
+.glass-area {
+  @apply p-3 rounded-full flex backdrop-blur items-center justify-center;
 }
 
 ul {
