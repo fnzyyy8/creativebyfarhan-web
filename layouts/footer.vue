@@ -10,7 +10,7 @@ const {localeRoute} = useI18n()
 <template>
   <footer>
     <div class="footer-container">
-      <div class="col-start-2 col-end-4 row-start-2 row-end-3 flex justify-center items-center">
+      <div class="col-start-2 col-end-4 row-start-2 row-end-3 flex justify-center items-center cursor-default">
         <h1>LET'S DO MORE</h1>
       </div>
       <ul class="col-start-1 col-end-1 row-start-4 items-center row-end-4 flex flex-row gap-3">

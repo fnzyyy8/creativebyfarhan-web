@@ -26,16 +26,16 @@ const futures = computed(() => t('futures.detail'))
     <section id="aboutSection">
       <div class="highlight-container" v-gsap.whenVisible.fromTo="[{autoAlpha: 0, y:100},{autoAlpha: 1,y:0}]">
         <div class="title-container">
-          <h1>{{ $t('details.nickname') }}</h1>
-          <p class="mini-text">{{ $t('details.name') }}</p>
+          <h1>{{ t('details.nickname') }}</h1>
+          <p class="mini-text">{{ t('details.name') }}</p>
         </div>
         <div class="text-justify mt-3">
-          <p>{{ $t('details.about_me') }}</p>
+          <p>{{ t('details.about_me') }}</p>
         </div>
       </div>
       <div class="highlight-container" v-gsap.whenVisible.fromTo="[{autoAlpha: 0, y:100},{autoAlpha: 1,y:0}]">
         <div class="title-container">
-          <h1>{{ $t('skills.title') }}</h1>
+          <h1>{{ t('skills.title') }}</h1>
         </div>
         <div class="detail-container">
           <template v-for="{title,tools,description} in skills">
@@ -53,7 +53,7 @@ const futures = computed(() => t('futures.detail'))
       </div>
       <div class="highlight-container" v-gsap.whenVisible.fromTo="[{autoAlpha: 0, y:100},{autoAlpha: 1,y:0}]">
         <div class="title-container">
-          <h1>{{ $t('careers.title') }}</h1>
+          <h1>{{ t('careers.title') }}</h1>
         </div>
         <div class="detail-container">
           <template v-for=" {title,year,description} in careers" :key="title">
@@ -71,7 +71,7 @@ const futures = computed(() => t('futures.detail'))
       </div>
       <div class="highlight-container" v-gsap.whenVisible.fromTo="[{autoAlpha: 0, y:100},{autoAlpha: 1,y:0}]">
         <div class="title-container">
-          <h1>{{ $t('strengths.title') }}</h1>
+          <h1>{{ t('strengths.title') }}</h1>
         </div>
         <div class="detail-container">
           <template v-for="{title,description} in strengths">
@@ -86,7 +86,7 @@ const futures = computed(() => t('futures.detail'))
       </div>
       <div class="highlight-container" v-gsap.whenVisible.fromTo="[{autoAlpha: 0, y:100},{autoAlpha: 1,y:0}]">
         <div class="title-container">
-          <h1 class="detail-title">{{ $t('futures.title') }}</h1>
+          <h1 class="detail-title">{{ t('futures.title') }}</h1>
         </div>
         <div class="detail-container">
           <template v-for="{title,description} in futures">
@@ -132,10 +132,6 @@ const futures = computed(() => t('futures.detail'))
       @apply text-sm;
       color: gray;
     }
-
-    h2 {
-      @apply text-lg font-medium;
-    }
   }
 
 }
@@ -145,12 +141,5 @@ const futures = computed(() => t('futures.detail'))
 }
 
 
-h2 {
-  @apply text-2xl font-medium;
-}
-
-.sub-title-3 {
-  @apply font-semibold;
-}
 
 </style>

@@ -53,8 +53,8 @@ const closeContactModal = async () => {
 
 <template>
   <VueLenis>
-    <div class="outer-container-contact" v-show="isContactModalOpen" ref="modalRef">
-      <div class="contact">
+    <div class="outer-container-contact" v-show="isContactModalOpen" ref="modalRef" @click="closeContactModal">
+      <div class="contact" @click.stop>
         <div class="button-close mt-3 ml-3">
           <button @click="closeContactModal" type="button">
             close
@@ -77,12 +77,12 @@ const closeContactModal = async () => {
 
 <style scoped>
 .outer-container-contact {
-  @apply fixed w-full z-50 backdrop-blur;
+  @apply fixed inset-0 cursor-pointer w-full z-40 backdrop-blur;
   height: 100vh;
 }
 
 .contact {
-  @apply absolute text-black bg-white opacity-100 z-50 rounded-xl grid grid-cols-12 grid-rows-4 shadow-sm shadow-white;
+  @apply relative cursor-default text-black bg-white opacity-100 z-50 rounded-xl grid grid-cols-12 grid-rows-4 shadow-sm;
   width: 40%;
   height: 60%;
   top: 50%;

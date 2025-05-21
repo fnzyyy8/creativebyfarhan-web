@@ -25,7 +25,27 @@
       }
     ],
     "about_cta": "LEARN MORE",
-    "experience": "PAST EXPERIENCES"
+    "experience": "PAST EXPERIENCES",
+    "experiences": [
+      {
+        "img": "/company-logo/Sena.svg ",
+        "title": "PT SOLUSI ENERGY NUSANTARA",
+        "year": "Jan 2022 - Feb 2025",
+        "job_title": "Document Control & Surveyor"
+      },
+      {
+        "img": "/company-logo/Samsung.svg",
+        "title": "PT Accentuates",
+        "year": "Okt 2018 - Okt 2020",
+        "job_title": "Experience Consultant"
+      },
+      {
+        "img": "/company-logo/H&M.svg",
+        "title": "PT Hindo",
+        "year": "Feb 2017 - Apr 2017",
+        "job_title": "Sales Advisor"
+      }
+    ]
   },
   "about_web": {
     "highlight": "Creative by Farhan",
