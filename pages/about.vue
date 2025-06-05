@@ -13,7 +13,7 @@ const futures = computed(() => t('futures.detail'))
 
 <template>
   <section ref="pageSection">
-    <section id="heroSection" class="black-area">
+    <section id="heroSection" class="dark-area">
       <hero-section>
         <div class="flex justify-center items-center h-screen">
           <div class="max-w-xs">
@@ -40,7 +40,7 @@ const futures = computed(() => t('futures.detail'))
         <div class="detail-container">
           <template v-for="{title,tools,description} in skills">
             <div>
-              <h2 class="sub-title-3">{{ title }}</h2>
+              <h3>{{ title }}</h3>
               <p class="mini-text">
                 {{ tools }}
               </p>
@@ -56,17 +56,15 @@ const futures = computed(() => t('futures.detail'))
           <h1>{{ t('careers.title') }}</h1>
         </div>
         <div class="detail-container">
-          <template v-for=" {title,year,description} in careers" :key="title">
-            <div>
-              <h2 class="sub-title-3">{{ title }}</h2>
-              <p class="mini-text">
-                {{ year }}
-              </p>
-              <p class="text-justify">
-                {{ description }}
-              </p>
-            </div>
-          </template>
+          <div v-for=" {title,year,description} in careers" :key="title">
+            <h3>{{ title }}</h3>
+            <p class="mini-text">
+              {{ year }}
+            </p>
+            <p class="text-justify">
+              {{ description }}
+            </p>
+          </div>
         </div>
       </div>
       <div class="highlight-container" v-gsap.whenVisible.fromTo="[{autoAlpha: 0, y:100},{autoAlpha: 1,y:0}]">
@@ -74,29 +72,26 @@ const futures = computed(() => t('futures.detail'))
           <h1>{{ t('strengths.title') }}</h1>
         </div>
         <div class="detail-container">
-          <template v-for="{title,description} in strengths">
-            <div>
-              <h2 class="sub-title-3">{{ title }}</h2>
-              <p class="sm:mt-3 mt-2 text-justify">
-                {{ description }}
-              </p>
-            </div>
-          </template>
+          <div v-for="{title,description} in strengths">
+            <h3>{{ title }}</h3>
+            <p class="sm:mt-3 mt-2 text-justify">
+              {{ description }}
+            </p>
+          </div>
         </div>
       </div>
-      <div class="highlight-container" v-gsap.whenVisible.fromTo="[{autoAlpha: 0, y:100},{autoAlpha: 1,y:0}]">
+      <div class="highlight-container"
+           v-gsap.whenVisible.fromTo="[{autoAlpha: 0, y:100},{autoAlpha: 1,y:0}]">
         <div class="title-container">
           <h1 class="detail-title">{{ t('futures.title') }}</h1>
         </div>
         <div class="detail-container">
-          <template v-for="{title,description} in futures">
-            <div>
-              <h2 class="sub-title-3"># {{ title }}</h2>
-              <p class="sm:mt-3 mt-2 text-justify">
-                {{ description }}
-              </p>
-            </div>
-          </template>
+          <div v-for="{title,description} in futures">
+            <h3># {{ title }}</h3>
+            <p class="sm:mt-3 mt-2 text-justify">
+              {{ description }}
+            </p>
+          </div>
         </div>
       </div>
     </section>
@@ -139,7 +134,6 @@ const futures = computed(() => t('futures.detail'))
 #aboutSection {
   @apply min-h-screen px-6 lg:px-32 lg:my-24 flex-col flex gap-6 my-12
 }
-
 
 
 </style>

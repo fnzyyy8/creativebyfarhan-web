@@ -18,7 +18,7 @@ html{
         @apply text-4xl font-semibold;
     }
     h3{
-        @apply text-xl font-semibold;
+        @apply text-2xl font-semibold;
     }
 }
 

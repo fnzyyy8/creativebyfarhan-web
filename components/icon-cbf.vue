@@ -3,6 +3,7 @@ import {useSectionStore} from "~/stores/sectionStore";
 
 const {localeRoute} = useI18n()
 const sectionStore = useSectionStore()
+const darkArea = computed(() => sectionStore.pageCurrentSection === 'dark-area')
 </script>
 
 <template>
@@ -13,9 +14,9 @@ const sectionStore = useSectionStore()
       </defs>
       <g id="Layer_1-2">
         <g>
-          <path :fill="sectionStore.pageCurrentSection === 'black-area' ? '#FFFFFF':'#000000'"
+          <path :fill="darkArea ? '#FFFFFF':'#000000'"
                 d="M50,125h0c0,41.42,33.58,75,75,75h70c13.81,0,25,11.19,25,25h0c0,13.81-11.19,25-25,25h-70c-69.04,0-125-55.96-125-125h0C0,55.96,55.96,0,125,0h70c13.81,0,25,11.19,25,25h0c0,13.81-11.19,25-25,25h-70c-41.42,0-75,33.58-75,75Z"/>
-          <rect :fill="sectionStore.pageCurrentSection === 'black-area' ? '#FFFFFF':'#000000'" x="82.16" y="95"
+          <rect :fill="darkArea ? '#FFFFFF':'#000000'" x="82.16" y="95"
                 width="180.19" height="60" rx="30"
                 ry="30"/>
         </g>

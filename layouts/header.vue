@@ -6,7 +6,7 @@ import {useContacts} from "~/stores/contactsStore";
 const {localeRoute} = useI18n()
 
 const sectionStore = useSectionStore()
-const blackArea = computed(() => sectionStore.pageCurrentSection === 'black-area')
+const darkArea = computed(() => sectionStore.pageCurrentSection === 'dark-area')
 const navLists = inject('navLists')
 const contactStore = useContacts()
 const {openContactModal} = contactStore
@@ -23,14 +23,14 @@ const {openContactModal} = contactStore
       <ul>
         <li v-for="{title, page} in navLists" :key="title">
           <NuxtLink
-              :class="[blackArea ? 'text-white' : 'text-black']"
+              :class="[darkArea ? 'text-white' : 'text-black']"
               :to="localeRoute(page)"><span class="box"/>{{ title }}
           </NuxtLink>
         </li>
       </ul>
       <div class="flex items-center">
         <button @click="openContactModal()" type="button"
-                :class="['px-6 py-1 rounded-xl',blackArea ? 'button-black' : 'button-white']">
+                :class="['px-6 py-1 rounded-xl',darkArea ? 'button-black' : 'button-white']">
           Contact
         </button>
       </div>

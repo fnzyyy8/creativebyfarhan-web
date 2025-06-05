@@ -3,14 +3,15 @@ export default defineNuxtConfig({
     compatibilityDate: '2024-11-01',
     devtools: {enabled: true},
     modules: [
-        '@nuxtjs/tailwindcss',
-        '@vueuse/nuxt',
-        'nuxt-marquee',
-        'nuxt-i18n-micro',
-        '@formkit/auto-animate',
-        'v-gsap-nuxt',
-        '@pinia/nuxt',
-        'lenis/nuxt'
+      '@nuxtjs/tailwindcss',
+      '@vueuse/nuxt',
+      'nuxt-marquee',
+      'nuxt-i18n-micro',
+      '@formkit/auto-animate',
+      'v-gsap-nuxt',
+      '@pinia/nuxt',
+      'lenis/nuxt',
+      'nuxt-swiper'
     ],
     app: {
         head: {

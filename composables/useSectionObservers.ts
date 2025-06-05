@@ -7,27 +7,25 @@ export function useSectionObservers() {
 
     function pageObserver() {
         if (!pageSection.value) return null
-        const pageAreaSection = pageSection.value.querySelectorAll("section.black-area")
+        const pageAreaSection = pageSection.value.querySelectorAll("section.dark-area")
 
         const observer = new IntersectionObserver((entries) => {
-            let blackArea = false
+            let darkArea = false
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    if (entry.target.classList.contains("black-area")) {
-                        blackArea = true
+                    if (entry.target.classList.contains("dark-area")) {
+                        darkArea = true
                     }
                 }
             })
 
-            if (blackArea) {
-                sectionStore.pageCurrentSection = "black-area"
-                // console.log(sectionStore.pageCurrentSection)
-            } else if (!blackArea) {
+            if (darkArea) {
+                sectionStore.pageCurrentSection = "dark-area"
+            } else {
                 sectionStore.pageCurrentSection = "default-area"
-                // console.log(sectionStore.pageCurrentSection)
             }
         }, {
-            rootMargin: "-10% 0px 0px 0px",
+            rootMargin: "-10% 0px -100% 0px",
             threshold: 0,
         })
 
